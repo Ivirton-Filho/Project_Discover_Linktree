@@ -37,6 +37,7 @@ p {
         z-index: 1; /* coloca o botão na frente do span. Isso é relacionado com camadas no css */
         transform: translateY(-50%); /* centraliza o botão verticalmente */
         top: 50%;
+        animation: slide-back 0.4s forwards;
     }
 #switch span {
     display:block;
@@ -48,8 +49,7 @@ p {
     border: 1px solid var(--color-borda);
 }
 .light #switch button {
-    left: 0;
-    right:initial; /* reseta o right */
+    animation: slide-in 0.4s forwards;
 }
 section {
     display: flex;
@@ -104,7 +104,7 @@ footer {
 :root {
     --text-color: white;
     --bg-url: url(./assets/bg-mobile.jpg);
-   --color-borda: rgba(255, 255, 255, 0.5) ;
+   --color-borda: rgba(255, 255, 255, 0.671) ;
    --color--hover: rgba(240, 248, 255, 0.1);
    --icon--color: rgba(255, 255, 255, 0.1);
    --switch-bg-url: url(./assets/MoonStars.svg);
@@ -117,3 +117,18 @@ footer {
     --icon--color: rgba(0, 0, 0, 0.1);
     --switch-bg-url: url(./assets/Sun.svg);
 }
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 32px; /* Desloca o botão 32px para a direita */
+    }
+}
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0; 
+    }
